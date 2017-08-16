@@ -1,0 +1,18 @@
+{
+    "full_name": "Vladimir Osintsev",
+    "email": "osintsev@gmail.com",
+    "github_username": "osminogin",
+    "project_name": "Cookiecutter Django Ultimate",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "project_short_description": "Ultimate Django template",
+    "release_date": "{% now 'local' %}",
+    "version": "0.0.1",
+    "timezone": "UTC",
+    "use_celery": "n",
+    "use_postgres": "n",
+    "use_django_rest_framework": "n",
+    "use_docker": "n",
+    "use_heroku": "n",
+    "use_vscode": "n",
+    "_extensions": ["jinja2_time.TimeExtension"]
+}

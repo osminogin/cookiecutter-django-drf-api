@@ -1,0 +1,51 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLOWED_HOSTS	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:28
+AUTH_PASSWORD_VALIDATORS	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:106
+BASE_DIR	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
+DATABASES	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^    DATABASES = {$/;"	kind:variable	line:91
+DATABASES	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^    DATABASES = {$/;"	kind:variable	line:95
+DEBUG	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^DEBUG = False$/;"	kind:variable	line:26
+DEBUG	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings_local.py	/^DEBUG = True$/;"	kind:variable	line:3
+FIXTURE_DIRS	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^FIXTURE_DIRS = ($/;"	kind:variable	line:149
+INSTALLED_APPS	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
+INTERNAL_IPS	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^INTERNAL_IPS = ['127.0.0.1', '::1']$/;"	kind:variable	line:161
+LANGUAGE_CODE	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:125
+LETS_ENCRYPT	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^LETS_ENCRYPT = os.environ.get('LETS_ENCRYPT')$/;"	kind:variable	line:157
+MIDDLEWARE	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:44
+ROOT_URLCONF	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^ROOT_URLCONF = 'ecommercebotapp.urls'$/;"	kind:variable	line:54
+SECRET_KEY	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^SECRET_KEY = os.environ.get('SECRET_KEY', '^^CHANGE^^ME^^')$/;"	kind:variable	line:23
+STATICFILES_DIRS	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^STATICFILES_DIRS = ($/;"	kind:variable	line:141
+STATIC_URL	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:139
+TEMPLATES	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:56
+TIME_ZONE	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:127
+USE_I18N	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^USE_I18N = True$/;"	kind:variable	line:129
+USE_L10N	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^USE_L10N = True$/;"	kind:variable	line:131
+USE_TZ	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^USE_TZ = True$/;"	kind:variable	line:133
+WSGI_APPLICATION	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	/^WSGI_APPLICATION = 'ecommercebotapp.wsgi.application'$/;"	kind:variable	line:83
+__init__.py	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/__init__.py	1;"	kind:file	line:1
+application	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+conftest.py	../{{cookiecutter.project_slug}}/tests/conftest.py	1;"	kind:file	line:1
+enable_db_access_for_all_tests	../{{cookiecutter.project_slug}}/tests/conftest.py	/^def enable_db_access_for_all_tests(db):$/;"	kind:function	line:17
+fix_template_expansion	../hooks/post_gen_project.py	/^def fix_template_expansion(content, replacements):$/;"	kind:function	line:7
+get_file_content	../hooks/post_gen_project.py	/^def get_file_content(file):$/;"	kind:function	line:22
+hooksdir	../hooks/post_gen_project.py	/^        hooksdir = os.getcwd() + '\/hooks'$/;"	kind:variable	line:53
+initial_data	../{{cookiecutter.project_slug}}/tests/conftest.py	/^def initial_data(django_db_setup, django_db_blocker):$/;"	kind:function	line:11
+manage.py	../{{cookiecutter.project_slug}}/manage.py	1;"	kind:file	line:1
+post_gen_project.py	../hooks/post_gen_project.py	1;"	kind:file	line:1
+posthook	../hooks/post_gen_project.py	/^        posthook = hooksdir + '\/post_gen_project.py'$/;"	kind:variable	line:54
+pytest_addoption	../{{cookiecutter.project_slug}}/tests/conftest.py	/^def pytest_addoption(parser):$/;"	kind:function	line:5
+readme	../hooks/post_gen_project.py	/^readme = os.getcwd() + '\/README.md'$/;"	kind:variable	line:39
+replacements	../hooks/post_gen_project.py	/^        replacements = [$/;"	kind:variable	line:56
+set_file_content	../hooks/post_gen_project.py	/^def set_file_content(file, content):$/;"	kind:function	line:30
+settings.py	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings.py	1;"	kind:file	line:1
+settings_local.py	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/settings_local.py	1;"	kind:file	line:1
+source	../hooks/post_gen_project.py	/^        source = os.path.realpath(__file__)$/;"	kind:variable	line:55
+test_basic.py	../{{cookiecutter.project_slug}}/tests/test_basic.py	1;"	kind:file	line:1
+urlpatterns	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/urls.py	/^urlpatterns = [$/;"	kind:variable	line:20
+urls.py	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/urls.py	1;"	kind:file	line:1
+wsgi.py	../{{cookiecutter.project_slug}}/{{cookiecutter.project_slug}}/wsgi.py	1;"	kind:file	line:1

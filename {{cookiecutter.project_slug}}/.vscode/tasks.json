@@ -1,0 +1,25 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "runserver",
+            "type": "shell",
+            "command": "${config:python.pythonPath} ${workspaceRoot}/manage.py runserver",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "taskName": "test",
+            "type": "shell",
+            "command": "${config:python.pythonPath} -m pytest",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}
