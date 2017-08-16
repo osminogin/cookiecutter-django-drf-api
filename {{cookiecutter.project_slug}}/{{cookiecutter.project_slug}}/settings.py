@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    {% if cookiecutter.use_postgres == 'y' %}
+    {% if cookiecutter.use_postgres == 'y' -%}
     'django.contrib.postgres',
     {% endif -%}
     'django.contrib.sites',
 
-    {% if cookiecutter.use_django_rest_framework == 'y' %}
+    {% if cookiecutter.use_django_rest_framework == 'y' -%}
     'apps.api',
     {% endif -%}
     'apps.index',
@@ -66,7 +66,6 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates')
         ],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

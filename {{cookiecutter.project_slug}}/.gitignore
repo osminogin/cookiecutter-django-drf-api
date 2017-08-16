@@ -1,5 +1,8 @@
 db.sqlite3
 
+.vscode/settings.json
+.vscode/tags
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

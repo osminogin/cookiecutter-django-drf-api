@@ -1,6 +1,6 @@
-{% if cookiecutter.use_heroku == 'y' %}
+{% if cookiecutter.use_heroku == 'y' -%}
 web: gunicorn -w ${WSGI_PROCESSES:-4} {{cookiecutter.project_slug}}.wsgi --log-file -
-{% if cookiecutter.use_celery == 'y' %}
+{% if cookiecutter.use_celery == 'y' -%}
 worker: celery -A {{cookiecutter.project_slug}} worker -l info -c ${CELERY_PROCESSES:-2} -B
 {% endif -%}
 release: python manage.py migrate --no-input

@@ -21,8 +21,8 @@ from apps.index.views import frontpage
 
 urlpatterns = [
     url(r'', frontpage, name='index'),
-    {% if cookiecutter.use_django_rest_framework == 'y' %}
-    url(r'^api/', include('api.urls', namespace='api')),
+    {% if cookiecutter.use_django_rest_framework == 'y' -%}
+    url(r'^api/', include('apps.api.urls', namespace='api')),
     {% endif -%}
     url(r'^admin/', admin.site.urls),
 ]

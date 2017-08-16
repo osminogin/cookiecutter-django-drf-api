@@ -1,6 +1,6 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def frontpage(request):
     """ Index page. """
-    return HttpResponse()
+    return render(request, 'index.html')

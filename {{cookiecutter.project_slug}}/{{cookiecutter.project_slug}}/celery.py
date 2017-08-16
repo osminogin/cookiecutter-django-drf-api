@@ -1,4 +1,4 @@
-{% if cookiecutter.use_celery == 'y' %}
+{% if cookiecutter.use_celery == 'y' -%}
 import os
 
 from celery import Celery

@@ -1,4 +1,4 @@
-{% if cookiecutter.use_django_rest_framework == 'y' %}
+{% if cookiecutter.use_django_rest_framework == 'y' -%}
 from django.apps import AppConfig
 
 

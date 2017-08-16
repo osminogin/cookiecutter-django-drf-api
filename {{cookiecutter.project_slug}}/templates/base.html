@@ -1,10 +1,10 @@
-<!DOCTYPE html>{% load staticfiles %}
+{% raw %}<!DOCTYPE html>{% load staticfiles %}
 {% get_current_language as LANGUAGE_CODE %}<html lang="{{ LANGUAGE_CODE|default:'en' }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="{{ cookiecutter.full_name }}">
+    <meta name="author" content="">
     <link rel="icon" href="{% static 'favicon.ico' %}">
 
     <title>{% block 'title' %}{% endblock %}</title>
@@ -20,7 +20,7 @@
 
     <!-- Container -->
     <div class="container">
-        {% block 'container' %}{% endblock %}
+        {% block container %}{% endblock %}
     </div>
 
     <!-- Footer -->
@@ -33,4 +33,4 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
   </body>
-</html>
+</html>{% endraw %}
