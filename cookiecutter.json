@@ -6,7 +6,7 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "project_short_description": "Ultimate Django template",
     "release_date": "{% now 'local' %}",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "timezone": "UTC",
     "use_celery": "n",
     "use_postgres": "n",

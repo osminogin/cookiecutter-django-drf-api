@@ -2,10 +2,14 @@ django>=1.11,<2
 django-debug-toolbar>=1.8
 dj-database-url>=0.4.2
 python-dotenv>=0.6.5
+dj-static>=0.0.6
 gunicorn>=19.7.1
 {% if cookiecutter.use_celery == 'y' -%}
 celery>=4.1.0
 {% endif -%}
 {% if cookiecutter.use_django_rest_framework == 'y' -%}
 djangorestframework>=3.6.3
+{% endif -%}
+{% if cookiecutter.use_postgres == 'y' -%}
+psycopg2>=2.7.3
 {% endif -%}
