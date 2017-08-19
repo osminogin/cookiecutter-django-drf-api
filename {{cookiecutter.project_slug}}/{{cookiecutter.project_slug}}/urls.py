@@ -1,4 +1,4 @@
-"""{{cookiecutter.project_slug}} URL Configuration
+""" {{cookiecutter.project_slug}} URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -16,13 +16,23 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
 from apps.index.views import frontpage
 
 urlpatterns = [
-    url(r'', frontpage, name='index'),
+    url(r'^$', frontpage, name='index'),
     {% if cookiecutter.use_django_rest_framework == 'y' -%}
     url(r'^api/', include('apps.api.urls', namespace='api')),
+    {% endif -%}
+    {% if cookiecutter.use_authentication == 'y' -%}
+    url(
+        r'^login/',
+        auth_views.login,
+        {'template_name': 'admin/login.html'},
+        name='login'
+    ),
+    url(r'^logout/', auth_views.login, name='logout'),
     {% endif -%}
     url(r'^admin/', admin.site.urls),
 ]

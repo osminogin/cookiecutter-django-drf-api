@@ -11,6 +11,7 @@
     "use_celery": "n",
     "use_postgres": "n",
     "use_django_rest_framework": "n",
+    "use_authentication": "n",
     "use_docker": "n",
     "use_heroku": "n",
     "use_vscode": "n",

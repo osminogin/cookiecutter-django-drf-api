@@ -9,11 +9,14 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
 import os
+
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+SITE_ID = 1
 
 
 # Quick-start development settings - unsuitable for production
@@ -104,6 +107,14 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
+{% if cookiecutter.use_authentication == 'y' -%}
+# Athentication system
+# https://docs.djangoproject.com/en/1.11/topics/auth/default/
+
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGIN_URL = reverse_lazy('login')
+{% endif -%}
 
 
 # Password validation
