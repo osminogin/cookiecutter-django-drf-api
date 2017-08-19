@@ -5,6 +5,7 @@ Ultimate Django template include most of Django features.
 ## Features
 
 * Latest Python 3.5 and 3.6 releases supported.
+* Latest Django REST Framework.
 
 
 ## Requirements
@@ -25,4 +26,4 @@ cookiecutter gh:osminogin/cookiecutter-django-ultimate
 
 ## License
 
-This project is licensed under the terms of the [MIT License](/LICENSE)
+This project is licensed under the terms of the [MIT License](/LICENSE).
