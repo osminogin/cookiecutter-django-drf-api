@@ -5,7 +5,7 @@ Ultimate Django template include most of Django features.
 ## Features
 
 * Latest Python 3.5 and 3.6 releases supported.
-* Latest Django REST Framework.
+* Django REST Framework 3.6 integrated.
 
 
 ## Requirements

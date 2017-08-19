@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import url, include
+from django.urls import reverse_lazy
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
@@ -29,10 +30,20 @@ urlpatterns = [
     url(
         r'^login/',
         auth_views.login,
-        {'template_name': 'admin/login.html'},
+        {
+            'template_name': 'admin/login.html',
+            'redirect_authenticated_user': True
+        },
         name='login'
     ),
-    url(r'^logout/', auth_views.login, name='logout'),
+    url(
+        r'^logout/',
+        auth_views.login,
+        {
+            'next_page': reverse_lazy('index')
+        },
+        name='logout'
+    ),
     {% endif -%}
     url(r'^admin/', admin.site.urls),
 ]

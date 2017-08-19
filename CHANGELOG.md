@@ -6,13 +6,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Create git repo and first commit for fresh project
 - Django authentication supported (only login and logout now)
+- Django REST Framework intergrated
 
 ### Fixed
 - Modification of MIDDLAWARE settings in settings_local.py fixed
+- Redirect authenticated users from login page
 
 ## Changed
 - Use settings_local.py config file first if exists (not need set
   DJANGO_SETTINGS_MODULE)
+- Login and logout actions redirected to index page
 - Documentation minor update
 
 
