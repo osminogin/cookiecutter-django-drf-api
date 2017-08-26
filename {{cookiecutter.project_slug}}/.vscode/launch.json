@@ -14,9 +14,6 @@
                 "--noreload",
                 "--nothreading"
             ],
-            "env": {
-                "DJANGO_SETTINGS_MODULE": "{{cookiecutter.project_slug}}.settings_local"
-            },
             "envFile": "${workspaceRoot}/.env",
             "debugOptions": [
                 "WaitOnAbnormalExit",

@@ -25,10 +25,10 @@ def which(command):
         return shutil.which(command)
     # For python 3.2 and earlier
     except (ImportError, AssertionError):
-        return next(
-            os.access(os.path.join(path, command), os.X_OK)
-            for path in os.environ['PATH'].split(os.pathsep)
-        )
+        for path in os.environ['PATH'].split(os.pathsep):
+            full_path = os.path.join(path, command)
+            if os.access(full_path, os.X_OK):
+                return full_path
 
 
 def setup_git_repo():
@@ -56,11 +56,21 @@ def setup_virtualenv(python):
             raise RuntimeError('Python venv module or virtualenv required')
 
 
+def cleanup():
+    """
+    Removing unnecessary files from project directory.
+    """
+    if '{{ cookiecutter.use_heroku }}' == 'n':
+        run(['rm', 'Procfile'])
+    if '{{ cookiecutter.use_vscode }}' == 'n':
+        run(['rm', '-rf', '.vscode'])
+
+
 def main():
     setup_git_repo()
     if 'python' in '{{ cookiecutter.use_virtualenv }}':
         setup_virtualenv('{{ cookiecutter.use_virtualenv }}')
-
+    cleanup()
     print('\n{{cookiecutter.project_slug}} setup successfully!\n\n')
 
 
