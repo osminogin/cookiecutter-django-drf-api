@@ -9,6 +9,7 @@ Ultimate Django template include most of Django features.
 * Latest Python 3.5 and 3.6 releases supported.
 * Django REST Framework 3.6 integrated.
 * Ready for deploying to Heroku.
+* User authentication.
 * Assets storage via S3 (or any object storage with plugins).
 
 
