@@ -1,4 +1,4 @@
-import shutil
+import os
 import codecs
 import subprocess
 
@@ -17,8 +17,22 @@ def run(command, log=True):
     return output
 
 
+def which(command):
+    # For python 3.3 and later
+    try:
+        import shutil
+        assert hasattr(shutil, 'which')
+        return shutil.which(command)
+    # For python 3.2 and earlier
+    except (ImportError, AssertionError):
+        return next(
+            os.access(os.path.join(path, command), os.X_OK)
+            for path in os.environ['PATH'].split(os.pathsep)
+        )
+
+
 def setup_git_repo():
-    assert shutil.which('git')
+    assert which('git')
     run(['git', 'init'])
     run(['git', 'add', '.'])
     run(['git', 'status'])
@@ -26,8 +40,20 @@ def setup_git_repo():
 
 
 def setup_virtualenv(python):
-    assert shutil.which(python)
-    run([python, '-m', 'venv', './venv'])
+    python_command = which(python)
+    assert python_command
+    # First try included venv module
+    try:
+        import venv     # noqa
+        run([python_command, '-m', 'venv', './venv'])
+    except ImportError:
+        # Second try use virtualenv
+        try:
+            virtualenv_command = which('virtualenv')
+            assert virtualenv_command
+            run([virtualenv_command, '-p', python_command, './venv'])
+        except AssertionError:
+            raise RuntimeError('Python venv module or virtualenv required')
 
 
 def main():
