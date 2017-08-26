@@ -4,8 +4,12 @@ Ultimate Django template include most of Django features.
 
 ## Features
 
+* Django 1.11 LTS and above.
+* PostgreSQL databases (or SQLite for developing).
 * Latest Python 3.5 and 3.6 releases supported.
 * Django REST Framework 3.6 integrated.
+* Ready for deploying to Heroku.
+* Assets storage via S3 (or any object storage with plugins).
 
 
 ## Requirements

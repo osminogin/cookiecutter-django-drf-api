@@ -8,6 +8,11 @@
     "release_date": "{% now 'local' %}",
     "version": "0.0.2",
     "timezone": "UTC",
+    "use_virtualenv": [
+        "python3.5",
+        "python3.6",
+        "no"
+    ],
     "use_celery": "n",
     "use_postgres": "n",
     "use_django_rest_framework": "n",
