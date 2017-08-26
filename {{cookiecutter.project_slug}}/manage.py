@@ -6,8 +6,10 @@ if __name__ == '__main__':
     # Loads environment variables from .env file
     try:
         import dotenv   # noqa
-        dotenv.load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
-    except ImportError:
+        dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+        assert os.path.isfile(dotenv_path)
+        dotenv.load_dotenv(dotenv_path)
+    except (ImportError, AssertionError):
         pass
 
     # Use settings_local.py config first and then default settings
@@ -16,11 +18,9 @@ if __name__ == '__main__':
             os.path.dirname(__file__), '{{cookiecutter.project_slug}}', 'settings_local.py'
         )
         assert os.path.isfile(settings_local_path)
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                              '{{cookiecutter.project_slug}}.settings_local')
+        settings = '{{cookiecutter.project_slug}}.settings_local'
     except AssertionError:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                              '{{cookiecutter.project_slug}}.settings')
+        settings = '{{cookiecutter.project_slug}}.settings'
 
     try:
         from django.core.management import execute_from_command_line    # noqa
@@ -36,4 +36,6 @@ if __name__ == '__main__':
         raise
 
     os.environ.setdefault('PYTHONUNBUFFERED', '1')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings)
+
     execute_from_command_line(sys.argv)
