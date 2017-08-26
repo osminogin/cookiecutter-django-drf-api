@@ -1,4 +1,5 @@
-# Cookiecutter Django Ultimate ![Python 3.5, 3.6](https://img.shields.io/badge/Python-3.5.4%2C%203.6.2-green.svg?style=flat) ![License](https://img.shields.io/badge/License-MIT-green.svg)
+# Cookiecutter Django Ultimate [![](https://img.shields.io/github/release/osminogin/cookiecutter-django-ultimate.svg?style=flat)](https://github.com/osminogin/cookiecutter-django-ultimate/releases/latest) ![python 3.5, 3.6](https://img.shields.io/badge/python-3.5.4%2C%203.6.2-green.svg?style=flat) ![license](https://img.shields.io/badge/license-MIT-green.svg)
+
 
 Ultimate Django template include most of Django features.
 
