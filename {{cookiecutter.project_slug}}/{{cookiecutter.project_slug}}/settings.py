@@ -35,8 +35,10 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
+    {% if cookiecutter.use_authentication == 'y' or cookiecutter.use_registration == 'y' -%}
+    'django.contrib.auth',
+    {% endif -%}
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -53,10 +55,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    {% if cookiecutter.use_authentication -%}
     'django.contrib.sessions.middleware.SessionMiddleware',
+    {% endif -%}
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    {% if cookiecutter.use_authentication -%}
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    {% endif -%}
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -169,7 +175,7 @@ MANAGERS = ADMINS
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'assets'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (

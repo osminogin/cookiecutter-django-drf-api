@@ -1,4 +1,7 @@
 django>=1.11,<2
+{% if cookiecutter.use_registration == 'y' -%}
+django-registration>=2.2
+{% endif -%}
 django-debug-toolbar>=1.8
 dj-database-url>=0.4.2
 python-dotenv>=0.6.5
@@ -13,3 +16,5 @@ djangorestframework>=3.6.3
 {% if cookiecutter.use_postgres == 'y' -%}
 psycopg2>=2.7.3
 {% endif -%}
+argon2-cffi>=16.3.0
+

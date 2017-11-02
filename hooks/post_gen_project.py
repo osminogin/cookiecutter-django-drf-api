@@ -60,6 +60,8 @@ def cleanup():
     """
     Removing unnecessary files from project directory.
     """
+    if '{{ cookiecutter.use_registration }}' == 'n':
+        run(['rm', '-rf', 'templates/registration'])
     if '{{ cookiecutter.use_heroku }}' == 'n':
         run(['rm', 'Procfile'])
     if '{{ cookiecutter.use_vscode }}' == 'n':
