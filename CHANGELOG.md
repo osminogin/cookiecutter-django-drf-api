@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Changed
+- Better django authentication support
+
 ## [0.0.2] - 2017-08-19
 ### Added
 - Create git repo and first commit for fresh project
@@ -13,7 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Modification of MIDDLAWARE settings in settings_local.py fixed
 - Redirect authenticated users from login page
 
-## Changed
+### Changed
 - Use settings_local.py config file first if exists (not need set
   DJANGO_SETTINGS_MODULE)
 - Login and logout actions redirected to index page

@@ -1,10 +1,12 @@
 # {{cookiecutter.project_name}}
 
+[![Requirements Status](https://requires.io/github/osminogin/cookiecutter-django-ultimate/requirements.svg?branch=master)](https://requires.io/github/osminogin/cookiecutter-django-ultimate/requirements/?branch=master)
+
 ## Requirements
 
-Django 1.11
-Django Debug Toolbar
-Bootstrap v4
+* Django 1.11
+* Django Debug Toolbar
+* Bootstrap v4
 
 ## Features
 
