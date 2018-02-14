@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import subprocess
 from pathlib import Path
 
@@ -55,13 +54,13 @@ def install_dependencies():
     """
     Install project dependencies inside venv.
     """
-    cwd = Path(__file__).parent.cwd()
+    cwd = Path(__file__).cwd()
+    python = which('python')
+    requirements = cwd / '..' / 'requirements.txt'
+    run([python, '-m', 'ensurepip', 'install', '-U', '-r', str(requirements)])
     python = cwd / '..' / 'env' / 'bin' / 'python'
     requirements = cwd / '..' / 'requirements.txt'
-    run([python, 'install', '-U', '-r', requirements])
-    python = cwd / '..' / 'env' / 'bin' / 'python'
-    requirements = cwd / '..' / 'requirements.txt'
-    run([python, 'install', '-U', '-r', requirements])
+    run([python, '-m', 'ensurepip', install', '-U', '-r', str(requirements)])
 
 
 def cleanup():
