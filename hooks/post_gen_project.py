@@ -2,17 +2,12 @@ import subprocess
 from pathlib import Path
 
 
-def run(command, log=False):
+def run(command):
     try:
         subprocess.run(command, stdout=subprocess.PIPE)
     except subprocess.CalledProcessError as error:
         print('{}: {}\n{}'.format(error.returncode, error.cmd, error.output))
         raise error
-
-    if log:
-        print(' '.join(command))
-    else:
-        print(' '.join(command))
 
 
 def which(command):
@@ -56,11 +51,11 @@ def install_dependencies():
     """
     cwd = Path(__file__).cwd()
     python = which('python')
-    requirements = cwd / '..' / 'requirements.txt'
+    requirements = cwd / 'requirements.txt'
     run([python, '-m', 'ensurepip', 'install', '-U', '-r', str(requirements)])
-    python = cwd / '..' / 'env' / 'bin' / 'python'
-    requirements = cwd / '..' / 'requirements.txt'
-    run([python, '-m', 'ensurepip', install', '-U', '-r', str(requirements)])
+    python = cwd / 'env' / 'bin' / 'python'
+    requirements = cwd / 'requirements.txt'
+    run([python, '-m', 'ensurepip', 'install', '-U', '-r', str(requirements)])
 
 
 def cleanup():
