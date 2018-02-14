@@ -1,6 +1,7 @@
-import os
 import codecs
 import subprocess
+
+from pathlib import Path
 
 
 def run(command, log=True):
@@ -18,42 +19,48 @@ def run(command, log=True):
 
 
 def which(command):
-    # For python 3.3 and later
     try:
         import shutil
         assert hasattr(shutil, 'which')
-        return shutil.which(command)
-    # For python 3.2 and earlier
-    except (ImportError, AssertionError):
-        for path in os.environ['PATH'].split(os.pathsep):
-            full_path = os.path.join(path, command)
-            if os.access(full_path, os.X_OK):
-                return full_path
+        full_path = shutil.which(command)
+        assert full_path
+    except AssertionError:
+        raise RuntimeError('Command {} not installed'.format(command))
 
 
 def setup_git_repo():
-    assert which('git')
-    run(['git', 'init'])
-    run(['git', 'add', '.'])
-    run(['git', 'status'])
-    run(['git', 'commit', '-m', 'Initial commit'])
+    git = which('git')
+    run([git, 'init'])
+    run([git, 'add', '.'])
+    run([git, 'status'])
+    run([git, 'commit', '-m', 'Initial commit'])
 
 
 def setup_virtualenv(python):
-    python_command = which(python)
-    assert python_command
-    # First try included venv module
+    python = which(python)
     try:
+        # First try bundled venv module
         import venv     # noqa
-        run([python_command, '-m', 'venv', './venv'])
+        run([python, '-m', 'venv', './env'])
     except ImportError:
         # Second try use virtualenv
         try:
-            virtualenv_command = which('virtualenv')
-            assert virtualenv_command
-            run([virtualenv_command, '-p', python_command, './venv'])
+            virtualenv = which('virtualenv')
+            run([virtualenv, '-p', python, './venv'])
         except AssertionError:
             raise RuntimeError('Python venv module or virtualenv required')
+
+
+def install_dependencies():
+    """
+    Install project dependencies inside venv.
+    """
+    cwd = Path.cwd()
+    python = cwd / '..' / 'env' / 'bin' / 'python'
+    print(python)
+    exit(1)
+    requirements = cwd / '..' / 'requirements.txt'
+    run([python, 'install', '-U', '-r', requirements])
 
 
 def cleanup():
@@ -68,13 +75,10 @@ def cleanup():
         run(['rm', '-rf', '.vscode'])
 
 
-def main():
+if __name__ == '__main__':
     setup_git_repo()
     if 'python' in '{{ cookiecutter.use_virtualenv }}':
         setup_virtualenv('{{ cookiecutter.use_virtualenv }}')
-    cleanup()
+        install_dependencies()
     print('\n{{cookiecutter.project_slug}} setup successfully!\n\n')
-
-
-if __name__ == '__main__':
-    main()
+    cleanup()
