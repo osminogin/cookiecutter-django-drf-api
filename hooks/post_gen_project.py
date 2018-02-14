@@ -1,21 +1,19 @@
-import codecs
+#!/usr/bin/env python3
 import subprocess
-
 from pathlib import Path
 
 
 def run(command, log=True):
     try:
-        output = codecs.decode(subprocess.check_output(command), 'utf-8')
+        subprocess.run(command, stdout=subprocess.PIPE)
     except subprocess.CalledProcessError as error:
         print('{}: {}\n{}'.format(error.returncode, error.cmd, error.output))
         raise error
+
+    if log:
+        print('{}\n'.format(' '.join(command)))
     else:
-        if output and log:
-            print('{}\n{}'.format(' '.join(command), output))
-        else:
-            print(' '.join(command))
-    return output
+        print(' '.join(command))
 
 
 def which(command):
@@ -24,12 +22,14 @@ def which(command):
         assert hasattr(shutil, 'which')
         full_path = shutil.which(command)
         assert full_path
+        return full_path
     except AssertionError:
         raise RuntimeError('Command {} not installed'.format(command))
 
 
 def setup_git_repo():
     git = which('git')
+    print(git)
     run([git, 'init'])
     run([git, 'add', '.'])
     run([git, 'status'])
@@ -55,10 +55,11 @@ def install_dependencies():
     """
     Install project dependencies inside venv.
     """
-    cwd = Path.cwd()
+    cwd = Path(__file__).parent.cwd()
     python = cwd / '..' / 'env' / 'bin' / 'python'
-    print(python)
-    exit(1)
+    requirements = cwd / '..' / 'requirements.txt'
+    run([python, 'install', '-U', '-r', requirements])
+    python = cwd / '..' / 'env' / 'bin' / 'python'
     requirements = cwd / '..' / 'requirements.txt'
     run([python, 'install', '-U', '-r', requirements])
 
