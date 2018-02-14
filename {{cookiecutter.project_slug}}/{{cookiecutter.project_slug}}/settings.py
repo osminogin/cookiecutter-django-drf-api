@@ -11,10 +11,24 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 import os
 
+import environ
 from django.urls import reverse_lazy
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Django environ
+root = environ.Path(__file__) - 2
+env = environ.Env(
+    DEBUG=(bool, False),
+    SECRET_KEY=(str, 'y_k@i*i(a0%gh+g%gos&&0)0#b-pbb&atrwl!x+40t!l(i1ap%'),
+    REDIS_URL=(str, 'redis://localhost:6379/10'),
+    CACHE_URL=(str, 'redis://localhost:6379/10'),
+    EMAIL_FROM=(str, 'chatbot@spasibosb.ru'),
+    DEVINO_USERNAME=(str, 'spasibo_test'),
+    DEVINO_PASSWORD=(str, 'Spasibo_test1qwerty')
+)
+environ.Env.read_env(env_file=root('.env'))
+
+# Build paths inside the project like this: root('dir/subdir')
+BASE_DIR = root()
 
 SITE_ID = 1
 
@@ -23,10 +37,10 @@ SITE_ID = 1
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '^^CHANGE^^ME^^')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -73,7 +87,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            root.path('templates')
         ],
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +136,6 @@ LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGIN_URL = reverse_lazy('login')
 {% endif -%}
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -154,23 +167,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 TIME_ZONE = '{{ cookiecutter.timezone }}'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
 
 # Admins and managers
 # https://docs.djangoproject.com/en/1.11/ref/settings/#admins
 
-ADMINS = [
+ADMINS = MANAGERS = (
     ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
-]
-
-MANAGERS = ADMINS
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -178,24 +186,9 @@ MANAGERS = ADMINS
 STATIC_ROOT = 'assets'
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
+STATICFILES_DIRS = (root('static'),)
 
 # Fixtures
 # https://docs.djangoproject.com/en/1.10/howto/initial-data/
 
-FIXTURE_DIRS = (
-    os.path.join(BASE_DIR, 'fixtures'),
-)
-
-
-# Lets' Encrypt challenge
-# https://letsencrypt.org/
-
-LETS_ENCRYPT = os.environ.get('LETS_ENCRYPT')
-
-
-#
-INTERNAL_IPS = ['127.0.0.1', '::1']
+FIXTURE_DIRS = (root('fixtures'),)

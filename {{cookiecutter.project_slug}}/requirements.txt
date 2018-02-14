@@ -1,10 +1,10 @@
-django>=1.11,<2
+django>=2.0.1,<2.1
 {% if cookiecutter.use_registration == 'y' -%}
 django-registration>=2.2
 {% endif -%}
 django-debug-toolbar>=1.8
+django-environ>=0.4.4
 dj-database-url>=0.4.2
-python-dotenv>=0.6.5
 dj-static>=0.0.6
 gunicorn>=19.7.1
 {% if cookiecutter.use_celery == 'y' -%}

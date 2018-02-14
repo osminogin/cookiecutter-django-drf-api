@@ -48,16 +48,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
 
-# if settings.LETS_ENCRYPT:
-#     challenge = settings.LETS_ENCRYPT.split('.')
-#     urlpatterns += [
-#         url(r'^.well-known/acme-challenge/{}'.format(challenge[0]),
-#             letsencrypt_challenge,
-#             name='letsencrypt'),
-#     ]
-
 if settings.DEBUG:
-    import debug_toolbar
+    import debug_toolbar    # noqa
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
     ]

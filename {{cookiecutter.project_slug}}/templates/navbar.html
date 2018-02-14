@@ -17,7 +17,7 @@
             </li>
             {% endraw %}{% if cookiecutter.use_registration -%}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'registration_register' %}">Sign up</a>
+                <a class="nav-link" href="{% raw %}{% url 'registration_register' %}{% endraw %}">Sign up</a>
             </li>
             {% endif -%}{% raw %}
             {% else %}
