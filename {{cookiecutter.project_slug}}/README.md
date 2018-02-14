@@ -4,16 +4,18 @@
 
 ## Requirements
 
-* Django 1.11
-* Django Debug Toolbar
+* Django 2.0
 * Bootstrap v4
+
+## Evironment
+
+* ````
 
 ## Features
 
 * Support `.env` files
 * Heroku support
-* Let's Encrypt integration
-* LiveReload support
-* 16-factors inspired
-* Celery support
+* Django Debug Toolbar
+* LiveReload integration
+* 12-factors inspired
 * Py.test

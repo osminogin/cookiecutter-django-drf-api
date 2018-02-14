@@ -1,5 +1,5 @@
-web: gunicorn -w ${WSGI_PROCESSES:-4} {{cookiecutter.project_slug}}.wsgi --log-file -
+web: gunicorn -w ${WSGI_PROCESSES:-5} {{cookiecutter.project_slug}}.wsgi --log-file -
 {% if cookiecutter.use_celery == 'y' -%}
-worker: celery -A {{cookiecutter.project_slug}} worker -l info -c ${CELERY_PROCESSES:-2} -B
+worker: celery -A {{cookiecutter.project_slug}} worker -l info -c ${WORKER_PROCESSES:-4} -B
 {% endif -%}
 release: python manage.py migrate --no-input
