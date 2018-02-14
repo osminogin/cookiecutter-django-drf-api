@@ -7,21 +7,24 @@ Ultimate Django project template via [cookiecutter](https://github.com/audreyr/c
 
 ## Features
 
-* Django 1.11 LTS and above.
+* Latest Django 2.0, Python 3.6 stable releases.
 * PostgreSQL, MariaDB databases (or SQLite for developing).
-* Latest Python 3.5 and 3.6 releases supported.
-* Django REST Framework integrated for APIs.
-* Ready for deploying to Heroku.
+* Celery, Redis Server for cache and async queue (if enabled).
+* Docker support.
+* Django REST Framework for public and private APIs.
+* Ready for instant deploying to Heroku.
 * User authentication (login/logout) and registration (with email confirmation).
 * Assets storage via S3 (or any object storage with plugins).
 
 
 ## Requirements
 
-Install `cookiecutter` command line:
+Install `cookiecutter` command line util:
 
 ```bash
-pip install cookiecutter
+sudo pip3 install cookiecutter
+# or more secure (but add ~/.local/bin to $PATH env)
+pip3 install --user cookiecutter
 ```
 
 ## Usage

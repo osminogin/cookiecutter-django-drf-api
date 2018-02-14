@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Better django authentication support
+- Updated to Django 2.0
+- Documentation updated
 
 ## [0.0.2] - 2017-08-19
 ### Added
