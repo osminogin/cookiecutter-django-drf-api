@@ -3,7 +3,7 @@ import subprocess
 from pathlib import Path
 
 
-def run(command, log=True):
+def run(command, log=False):
     try:
         subprocess.run(command, stdout=subprocess.PIPE)
     except subprocess.CalledProcessError as error:
@@ -11,7 +11,7 @@ def run(command, log=True):
         raise error
 
     if log:
-        print('{}\n'.format(' '.join(command)))
+        print(' '.join(command))
     else:
         print(' '.join(command))
 
